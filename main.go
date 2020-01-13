@@ -14,13 +14,13 @@ var (
 	accessTokenSecret = getenv("TWITTER_ACCESS_TOKEN_SECRET")
 )
 
-// func getenv(name string) string {
-// 	v := os.Getenv(name)
-// 	if v == "" {
-// 		panic("missing required environment variable " + name)
-// 	}
-// 	return v
-// }
+func getenv(name string) string {
+	v := os.Getenv(name)
+	if v == "" {
+		panic("missing required environment variable " + name)
+	}
+	return v
+}
 
 func main() {
 	anaconda.SetConsumerKey(consumerKey)
