@@ -2,7 +2,7 @@ package main
 
 import (
 	"net/url"
-	// "os"
+	"os"
 	"github.com/ChimeraCoder/anaconda"
 	"github.com/sirupsen/logrus"
 )
