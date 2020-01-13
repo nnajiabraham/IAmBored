@@ -8,10 +8,10 @@ import (
 )
 
 var (
-	consumerKey       = ""
-	consumerSecret    = ""
-	accessToken       = ""
-	accessTokenSecret = ""
+	consumerKey       = getenv("TWITTER_CONSUMER_KEY")
+	consumerSecret    = getenv("TWITTER_CONSUMER_SECRET")
+	accessToken       = getenv("TWITTER_ACCESS_TOKEN")
+	accessTokenSecret = getenv("TWITTER_ACCESS_TOKEN_SECRET")
 )
 
 // func getenv(name string) string {
@@ -54,7 +54,7 @@ func main() {
 		}
 
 		_, err := api.Retweet(t.Id, false)
-
+		
 		if err != nil {
 			log.Errorf("could not retweet %d: %v", t.Id, err)
 			continue
@@ -67,7 +67,18 @@ type logger struct {
 	*logrus.Logger
 }
 
-func (log *logger) Critical(args ...interface{})                 { log.Error(args...) }
-func (log *logger) Criticalf(format string, args ...interface{}) { log.Errorf(format, args...) }
-func (log *logger) Notice(args ...interface{})                   { log.Info(args...) }
-func (log *logger) Noticef(format string, args ...interface{})   { log.Infof(format, args...) }
+func (log *logger) Critical(args ...interface{})                 { 
+	log.Error(args...)
+}
+
+func (log *logger) Criticalf(format string, args ...interface{}) { 
+	log.Errorf(format, args...) 
+}
+
+func (log *logger) Notice(args ...interface{})                   { 
+	log.Info(args...) 
+}
+
+func (log *logger) Noticef(format string, args ...interface{})   { 
+	log.Infof(format, args...) 
+}
