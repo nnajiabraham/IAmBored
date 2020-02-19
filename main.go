@@ -2,25 +2,32 @@ package main
 
 import (
 	"net/url"
-	"os"
+	// "os"
 	"github.com/ChimeraCoder/anaconda"
 	"github.com/sirupsen/logrus"
 )
 
 var (
-	consumerKey       = getenv("TWITTER_CONSUMER_KEY")
-	consumerSecret    = getenv("TWITTER_CONSUMER_SECRET")
-	accessToken       = getenv("TWITTER_ACCESS_TOKEN")
-	accessTokenSecret = getenv("TWITTER_ACCESS_TOKEN_SECRET")
+	consumerKey       = "fOm54y9kep6yDIeYQc60oE6x2"
+	consumerSecret    = "CTHtwLktuCMJRa2utU4UBuDGNDvk5VqgM9f95MtAYH3Xm2Lkhh"
+	accessToken       = "1216805040419147776-M6rudtnfKW2Oi0lzgmBiC6DyK2Kbl1"
+	accessTokenSecret = "GetxXsVnfhNxsN2fH8XMARWl5Au5MmRl4URCwWA7wNV9x"
 )
 
-func getenv(name string) string {
-	v := os.Getenv(name)
-	if v == "" {
-		panic("missing required environment variable " + name)
-	}
-	return v
-}
+// var (
+// 	consumerKey       = getenv("TWITTER_CONSUMER_KEY")
+// 	consumerSecret    = getenv("TWITTER_CONSUMER_SECRET")
+// 	accessToken       = getenv("TWITTER_ACCESS_TOKEN")
+// 	accessTokenSecret = getenv("TWITTER_ACCESS_TOKEN_SECRET")
+// )
+
+// func getenv(name string) string {
+// 	v := os.Getenv(name)
+// 	if v == "" {
+// 		panic("missing required environment variable " + name)
+// 	}
+// 	return v
+// }
 
 func main() {
 	anaconda.SetConsumerKey(consumerKey)
@@ -37,8 +44,6 @@ func main() {
 			"@IAmBoredBot what should I do", 
 			},
 	})
-
-	// api.GetMentionsTimeline
 
 	defer stream.Stop()
 
